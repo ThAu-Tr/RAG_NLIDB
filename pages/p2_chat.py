@@ -216,29 +216,29 @@ with st.sidebar:
                     app_reload()
 
             st.session_state.last_sql = last_sql
-
-    with st.expander('Databases'):
-        st.write('Current connection: ' + '**'+ db_mono.replace('_', ' ') + '**')
-
-        with st.form('db',clear_on_submit=True):
-            selectbox_val = st.selectbox(
-                "Explore other domains",
-                eval(vc.get_dbString()),
-                index=None,
-                placeholder="Select...",
-                )
-            submitted = st.form_submit_button("Submit")
-            if submitted:
-                if selectbox_val is None:
-                    st.warning("Please select a database first.")
-                else:
-                    st.write("You selected:", '*' + selectbox_val + '*')
-                    message = vc.setUp_newDB(selectbox_val)
-                    st.cache_data.clear()
-                    st.write(message)
-                time.sleep(1)
-                st.rerun()     
     
+    #with st.expander('Databases'):
+        #st.write('Current connection: ' + '**'+ db_mono.replace('_', ' ') + '**')
+
+        #with st.form('db',clear_on_submit=True):
+        #    selectbox_val = st.selectbox(
+        #        "Explore other domains",
+        #        eval(vc.get_dbString()),
+        #        index=None,
+        #        placeholder="Select...",
+        #        )
+        #    submitted = st.form_submit_button("Submit")
+        #    if submitted:
+        #        if selectbox_val is None:
+        #            st.warning("Please select a database first.")
+        #        else:
+        #            st.write("You selected:", '*' + selectbox_val + '*')
+        #            message = vc.setUp_newDB(selectbox_val)
+        #            st.cache_data.clear()
+        #            st.write(message)
+        #        time.sleep(1)
+        #        st.rerun()     
+        
     with st.expander("Database Structure"):
             
         st.toggle("Dynamic", value=False, key="dynamic_er-diagram")
