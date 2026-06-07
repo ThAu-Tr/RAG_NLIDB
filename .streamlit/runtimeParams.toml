@@ -1,0 +1,3 @@
+db_mono = "electricville_renewables_mart5"
+current_tbl = "fact_weather_daily"
+language = "English"

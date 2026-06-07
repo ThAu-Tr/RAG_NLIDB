@@ -1,0 +1,23 @@
+DomainID,Domain,Display,Deleteable
+9,assetGeo,True,1.0
+2,car_1,False,0.0
+20,Chinook,True,0.0
+7,E-Commerce,True,1.0
+13,Electricity & Climate Mart,True,1.0
+8,Electricity-Modeling Mart,True,1.0
+14,Electricville-Random Mart,True,1.0
+15,Electricville-Random Mart2,True,1.0
+13,Electricville-Renewables Mart,True,1.0
+16,electricville_renewables_mart,True,1.0
+17,electricville_renewables_mart2,True,1.0
+18,electricville_renewables_mart3,True,1.0
+19,electricville_renewables_mart4,True,1.0
+20,electricville_renewables_mart5,True,1.0
+11,enercity-mart,True,1.0
+12,enercity-mart-wo-cap,True,1.0
+12,fashion_store,True,1.0
+10,student_transcripts_tracking,True,0.0
+10,wind-mart,True,1.0
+14,world_1,False,0.0
+8,wta_1,False,0.0
+21,chin_test,,1.0
