@@ -524,7 +524,8 @@ class VN_QuerySystem(Qdrant_VectorStore, OpenAI_Chat):
         #initial_prompt += '\n' + f"System-Interpretation:\n{kwargs.get('plan')} \n"
         initial_prompt += '\n' + f"Executed SQL:\n{sql} \n"
         initial_prompt += '\n' + f"Error-Message:\n{message} \n"
-
+        
+        """
         doc_list = self.get_related_documentation(question)
         if self.static_documentation != "":
             doc_list.append(self.static_documentation)
@@ -532,6 +533,7 @@ class VN_QuerySystem(Qdrant_VectorStore, OpenAI_Chat):
         initial_prompt = self.add_documentation_to_prompt(
             initial_prompt, doc_list, max_tokens=self.max_tokens
         )
+        """
 
         initial_prompt += '\n Please respond with a Python-Dictionary storing the key "corrected_SQL" written as a one-liner. \n'
 
@@ -550,8 +552,8 @@ class VN_QuerySystem(Qdrant_VectorStore, OpenAI_Chat):
                     message_log.append(self.user_message(utterance["question"]))
                     #if utterance["query"] is not None:
                         #message_log.append(self.assistant_message(utterance["query"]))
-                    if utterance["summary"] is not None:
-                        message_log.append(self.assistant_message("Result-Summary: " + utterance["summary"]))
+                    #if utterance["summary"] is not None:
+                        #message_log.append(self.assistant_message("Result-Summary: " + utterance["summary"]))
 
         return message_log
     
