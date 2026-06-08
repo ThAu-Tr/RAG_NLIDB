@@ -929,7 +929,7 @@ with st.expander("🗄️ Demonstrationsdatensatz: Renewables-Climate Mart", exp
         st.markdown(f"""
     <div style="background-color: #f0f2f6; padding: 15px; border-left: 5px solid #007bff; border-radius: 5px; margin-bottom: 20px;">
         <b style="color: #555; font-size: 0.9rem;">🗨️ Anfrage:</b><br>
-        <i style="font-size: 1.0rem;">"Map the generation capacity across Germany. Summarize the portfolio by energy source, operator and city. Ensure TSO regions, GPS coordinates and asset_counts are included for regional clustering."</i>
+        <i style="font-size: 1.0rem;">Map the generation capacity across Germany. Summarize the portfolio by energy source, operator and city. Ensure TSO regions, GPS coordinates and asset_counts are included for regional clustering.</i>
     </div>
     """, unsafe_allow_html=True)
         
@@ -1038,7 +1038,7 @@ ORDER BY
             st.markdown("""
             <div style="background-color: #f0f2f6; padding: 15px; border-left: 5px solid #007bff; border-radius: 5px; margin-bottom: 20px;">
                 <b style="color: #555; font-size: 0.9rem;">🗨️ Anfrage 1:</b><br>
-                <i>"Compare the monthly renewable energy generation between the iso_years 2024 and 2025 on individual energy source level. Display the progress for both years and calculate the year-over-year growth in both absolute (MWh) and percentage terms. Add a 'Total Renewables' summary row as a baseline comparison."</i>
+                <i>Compare the monthly renewable energy generation between the iso_years 2024 and 2025 on individual energy source level. Display the progress for both years and calculate the year-over-year growth in both absolute (MWh) and percentage terms. Add a 'Total Renewables' summary row as a baseline comparison.</i>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1160,7 +1160,7 @@ ORDER BY combined.month, CASE WHEN combined.energy_source_name = 'Total Renewabl
             st.markdown("""
             <div style="background-color: #f0f2f6; padding: 15px; border-left: 5px solid #007bff; border-radius: 5px; margin-bottom: 20px;">
                 <b style="color: #555; font-size: 0.9rem;">🗨️ Anfrage 2:</b><br>
-                <i>"Focus on wind energy only. Next to absolute growth provide the year-over-year difference in a) total installed wind asset capacity (MW) for each month and b) average wind_power_density for the areas with wind assets."</i>
+                <i>Focus on wind energy only. Next to absolute growth provide the year-over-year difference in a) total installed wind asset capacity (MW) for each month and b) average wind_power_density for the areas with wind assets.</i>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1302,7 +1302,7 @@ ORDER BY month;
             st.markdown("""
             <div style="background-color: #f0f2f6; padding: 15px; border-left: 5px solid #007bff; border-radius: 5px; margin-bottom: 20px;">
                 <b style="color: #555; font-size: 0.9rem;">🗨️ Anfrage 3a:</b><br>
-                <i>"With the last analysis calculate the total correlation between growth (MWh) and a) difference in installed capacity (MW) as well as b) difference in wind_power_density. Compare these to identify if a drop in growth was caused by a drop in capacity or wind_power_density."</i>
+                <i>With the last analysis calculate the total correlation between growth (MWh) and a) difference in installed capacity (MW) as well as b) difference in wind_power_density. Compare these to identify if a drop in growth was caused by a drop in capacity or wind_power_density.</i>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1312,7 +1312,7 @@ ORDER BY month;
             st.markdown("""
             <div style="background-color: #f0f2f6; padding: 15px; border-left: 5px solid #007bff; border-radius: 5px; margin-bottom: 20px;">
                 <b style="color: #555; font-size: 0.9rem;">🗨️ Anfrage 3b:</b><br>
-                <i>"Repeat the same correlation calculation for solar energy. Use total solar_irradiation instead of average wind_power_density"</i>
+                <i>Repeat the same correlation calculation for solar energy. Use total solar_irradiation instead of average wind_power_density.</i>
             </div>
             """, unsafe_allow_html=True)
 
