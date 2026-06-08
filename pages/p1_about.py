@@ -916,7 +916,7 @@ with st.expander("🗄️ Demonstrationsdatensatz: Renewables-Climate Mart", exp
     """)
     st.info("""
     ℹ️ **Hinweis**:  
-    Die Beispiele wurden mehrfach validiert. Aufgrund der **nichtdeterministischen** Natur von Sprachmodellen können einzelne Antworten in seltenen Fällen geringfügig von den dargestellten Ergebnissen abweichen.
+    Die Beispiele wurden mehrfach validiert und entsprechen den Antworten in den meisten Fällen. Aufgrund der **nichtdeterministischen** Natur von Sprachmodellen können einzelne Antworten allerdings von den dargestellten Ergebnissen abweichen.
     """)
 
     tab1, tab2 = st.tabs(["Einstufige Analyse", "Mehrstufige Analyse"])
@@ -1302,7 +1302,7 @@ ORDER BY month;
             st.markdown("""
             <div style="background-color: #f0f2f6; padding: 15px; border-left: 5px solid #007bff; border-radius: 5px; margin-bottom: 20px;">
                 <b style="color: #555; font-size: 0.9rem;">🗨️ Anfrage 3a:</b><br>
-                <i>With the last analysis calculate the total correlation between growth (MWh) and a) difference in installed capacity (MW) as well as b) difference in wind_power_density. Compare these to identify if a drop in growth was caused by a drop in capacity or wind_power_density.</i>
+                <i>Save the last analysis as a CTE and calculate the total correlation between growth (MWh) and a) difference in installed capacity (MW) as well as b) difference in wind_power_density. Compare these to identify if a drop in growth was caused by a drop in capacity or wind_power_density.</i>
             </div>
             """, unsafe_allow_html=True)
 
