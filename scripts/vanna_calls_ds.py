@@ -32,7 +32,7 @@ def get_config(db_name):
         "fastembed_model":'BAAI/bge-base-en-v1.5',
         "n_results": masked_n_results(5),
         "sql_collection_name" : 'bge-base-en-v1.5_sql_w_sqlSkeleton',
-        "ddl_collection_name" : 'experiment_ddl',
+        "ddl_collection_name" : 'bewerbung_ddl',
         "documentation_collection_name": db_name + "_documentation",
         "api_key": st.secrets.get('OpenAI_API_KEY_DEV'),
         "model": 'gpt-5.4-mini',
