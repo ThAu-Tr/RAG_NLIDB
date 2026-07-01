@@ -1,0 +1,242 @@
+﻿,energy_source_name,company_name,city,tso_region,latitude,longitude,asset_count,total_generation_capacity_mw
+0,Wind,electricville Windfarm Groß Eilstorf GmbH,Walsrode,TenneT,52.81452717647058,9.426858058823528,17,52.275000000000006
+1,Wind,electricville Erneuerbare Tiefenriede GmbH ＆ Co. KG,Stemwede,Amprion,52.4008764,8.3487744,10,45
+2,Wind,electricville Windfarm Schipkau GmbH ＆ Co. KG,Schipkau,50Hertz,51.51665915384616,13.865761692307691,13,42.9
+3,Biomass,BEH Biomasse Hannover GmbH,Hannover,TenneT,52.4099714,9.6633991,10,40
+4,Wind,electricville Windfarm Beeskow GmbH ＆ Co. KG,Beeskow,50Hertz,52.20936533333333,14.244393333333331,6,33.36
+5,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Tangerhütte,50Hertz,52.400384125,11.8188021875,16,32
+6,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Rietz-Neuendorf,50Hertz,52.19597453846154,14.217739846153846,13,26
+7,Wind,Windfarm Holtriemer Land V GmbH ＆ Co. KG,Westerholt,TenneT,53.61397172727273,7.442280272727273,11,25.299999999999997
+8,Wind,electricville Windfarm Münstedt II GmbH ＆ Co. KG,Ilsede,TenneT,52.240247,10.27179925,4,22.4
+9,Wind,Windfarm Steinweg GmbH ＆ Co. KG,Norden,TenneT,53.63265511111111,7.251868,9,20.7
+10,Biomass,Lancepower Strom Service GmbH,Delitzsch,50Hertz,51.507542,12.300039,1,18.3
+11,Wind,Windfarm Nordisch GmbH ＆ Co. KG Ochtersum I,Ochtersum,TenneT,53.61999716666667,7.532450166666667,6,18
+12,Wind,electricville Windfarm Beuren GmbH,Beuren,Amprion,50.0897908,7.0518008000000005,5,17.25
+13,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Nossen,50Hertz,51.08516466666666,13.358784111111111,9,16.95
+14,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Trebbin,50Hertz,52.20366614285714,13.290820714285712,7,14
+15,Wind,Freesen-Breeze VI GmbH ＆ Co. KG,Norden,TenneT,53.62819516666667,7.230069333333333,6,13.899999999999999
+16,Wind,electricville Windfarm Portfolio II GmbH,Diemelsee,TenneT,51.38236766666666,8.819578666666667,6,13.799999999999999
+17,Solar,Interstellar Solar GmbH ＆ Co. KG,Baddeckenstedt,TenneT,52.0935785,10.1850985,2,13.68
+18,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Schwedt,50Hertz,53.09158777777778,14.180267444444446,9,13.5
+19,Wind,Freesen-Breeze V GmbH ＆ Co. KG,Norden,TenneT,53.62468714285715,7.231745857142856,7,12.6
+20,Wind,electricville Windfarm Portfolio II GmbH,Jerichow,50Hertz,52.53472225,12.07763875,4,12.3
+21,Wind,Windfarm Nordisch GmbH ＆ Co. Holtriemer Hammrich I,Nenndorf,TenneT,53.6097105,7.43244325,8,12.1
+22,Wind,Windfarm Nordisch GmbH ＆ Co. Holtriemer Hammrich II,Westerholt,TenneT,53.614343375,7.45583425,8,12
+23,Wind,Windfarm Nordisch GmbH ＆ Co. Holtriemer Hammrich III,Schweindorf,TenneT,53.617544,7.463888,8,12
+24,Wind,Windfarm Nordisch GmbH ＆ Co. KG Blomberg/Neuschoo I,Blomberg,TenneT,53.5520895,7.504966,4,12
+25,Wind,electricville Windfarm Fischbeck GmbH,Wust-Fischbeck,50Hertz,52.5316056,12.0379522,5,11.5
+26,Biomass,Lancepower GmbH,Elsterwerda,50Hertz,51.465983,13.504711,1,11.5
+27,Wind,electricville Windfarm Bosau GmbH ＆ Co. KG,Bosau,TenneT,54.0942235,10.5048455,2,11
+28,Wind,electricville Windfarm Klettwitz GmbH ＆ Co. KG,Lauchhammer,50Hertz,51.537003166666665,13.834597166666668,6,9.899999999999999
+29,Wind,Windfarm Holtriemer Land I GmbH ＆ Co. KG,Westerholt,TenneT,53.62036125,7.46559025,4,9.2
+30,Wind,Windfarm Ostermarsch GmbH ＆ Co. KG,Norden,TenneT,53.63180875,7.2460425,4,9.2
+31,Wind,Utere Ventos Wiesmoor III GmbH ＆ Co. KG,Wiesmoor,TenneT,53.3821975,7.7813125,4,8.899999999999999
+32,Wind,Utere Ventos Wiesmoor IV GmbH ＆ Co. KG,Wiesmoor,TenneT,53.3833825,7.786325,4,8.899999999999999
+33,Wind,WKA Sögel Süd I GmbH ＆ Co. KG,Sögel,TenneT,52.808322,7.496613,2,8.4
+34,Wind,WKA Sögel Süd III GmbH ＆ Co. KG,Sögel,TenneT,52.8142335,7.510498,2,8.4
+35,Wind,Freesen-Breeze IV GmbH ＆ Co. KG,Lütetsburg,TenneT,53.62091775,7.23980475,4,8
+36,Wind,"Windfarm Nordisch GmbH ＆ Co. KG, Holtriemer Hammrich IV",Utarp,TenneT,53.62007125,7.47530925,4,8
+37,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Bad Freienwalde,50Hertz,52.7516875,13.94022775,4,8
+38,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Ketzin,50Hertz,52.531701,12.88144225,4,8
+39,Solar,electricville Solarfarm Eisenberg GmbH ＆ Co. KG,Eisenberg,Amprion,49.553527,8.093946,1,8
+40,Wind,EBV Windfarm Almstedt-Breinum GmbH ＆ Co. Betriebs- KG,Sibbesse,TenneT,52.03998360000001,9.970623,5,7.5
+41,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Tribsees,50Hertz,54.1139502,12.8435898,5,7.5
+42,Wind,electricville Windfarm Jeetze GmbH ＆ Co. KG,Kalbe,50Hertz,52.72684,11.431903,2,7.2
+43,Wind,Utere Ventos Wiesmoor l GmbH ＆ Co. KG,Wiesmoor,TenneT,53.38013333333333,7.777439999999999,3,6.6
+44,Wind,electricville Windfarm Schipkau GmbH ＆ Co. KG,Lauchhammer,50Hertz,51.524854000000005,13.8611505,2,6.6
+45,Wind,WKA Aasbruch III GmbH ＆ Co. KG,Drentwede,TenneT,52.7504425,8.532720999999999,2,6.550000000000001
+46,Biomass,Lancepower Biomasse GmbH,Pfaffenhofen,TenneT,48.522168,11.505549,1,6.1
+47,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Bergholz,50Hertz,53.4562455,14.151297199999998,10,6
+48,Wind,Nordisch Ausblick GmbH ＆ Co. KG,Schweindorf,TenneT,53.58218125,7.47486825,4,6
+49,Wind,Windfarm Nordisch GmbH ＆ Co. Holtriemer Hammrich I,Westerholt,TenneT,53.61118975,7.43909675,4,6
+50,Wind,Utere Ventos Wiesmoor XI GmbH ＆ Co. KG,Wiesmoor,TenneT,53.38781333333333,7.80453,3,6
+51,Wind,Windfarm Sögel VI GmbH ＆ Co. KG,Sögel,TenneT,52.80276233333333,7.528760333333333,3,6
+52,Wind,Utere Ventos Wiesmoor XII GmbH ＆ Co. KG,Wiesmoor,TenneT,53.38576,7.78551,2,6
+53,Wind,Windfarm Nordisch GmbH ＆ Co. KG Holtriemer Hammrich IX,Utarp,TenneT,53.618622,7.4911125,2,6
+54,Wind,Windfarm Nordisch GmbH ＆ Co. KG Ochtersum II,Ochtersum,TenneT,53.6211445,7.5204,2,6
+55,Wind,Windfarm Nordisch GmbH ＆ Co. KG Ochtersum III,Ochtersum,TenneT,53.6195955,7.5176275,2,6
+56,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Hirschfelde,50Hertz,50.9559095,14.8470515,2,6
+57,Solar,electricville AG,Erwitte,Amprion,51.628791500000005,8.337315499999999,2,5.625
+58,Wind,electricville Windfarm Barnstorf GmbH ＆ Co. KG,Drentwede,TenneT,52.7428445,8.5068635,2,5.6
+59,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Crivitz,50Hertz,53.54525155555555,11.798304555555555,9,5.3999999999999995
+60,Biomass,Lancepower GmbH,Malchin,50Hertz,53.75,12.773,4,4.958
+61,Wind,WKA Aasbruch II GmbH ＆ Co. KG,Drentwede,TenneT,52.7454405,8.530750999999999,2,4.7
+62,Wind,Windfarm Sögel II GmbH ＆ Co. KG,Sögel,TenneT,52.8143515,7.554907,2,4.65
+63,Wind,Freesen-Breeze VII GmbH ＆ Co. KG,Norden,TenneT,53.6264655,7.235312,2,4.6
+64,Wind,Windfarm Holtriemer Land I GmbH ＆ Co. KG,Utarp,TenneT,53.6207015,7.471946,2,4.6
+65,Biomass,Lancepower GmbH,Sulzbach-Rosenberg,TenneT,49.486535,11.773324,1,4.54
+66,Wind,Windfarm Nordisch GmbH ＆ Co. Holtriemer Hammrich I,Großheide,TenneT,53.616385666666666,7.421246666666666,3,4.5
+67,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Tarnow,50Hertz,53.769481000000006,12.018828666666666,3,4.5
+68,Wind,Windfarm Nordisch GmbH ＆ Co. KG Blomberg/Neuschoo III,Neuschoo,TenneT,53.557382,7.525335,1,4.26
+69,Biomass,Lancepower Biomasse GmbH,Bad Köstritz,50Hertz,50.9309576,12.036299,5,4.237
+70,Wind,WKA Sögel Süd II GmbH ＆ Co. KG,Sögel,TenneT,52.80891,7.504337,1,4.2
+71,Wind,Freesen-Breeze III GmbH ＆ Co. KG,Lütetsburg,TenneT,53.615208,7.23521,2,4
+72,Wind,Utere Ventos Wiesmoor X GmbH ＆ Co. KG,Wiesmoor,TenneT,53.38546,7.80552,2,4
+73,Wind,Windfarm Dalena GmbH ＆ Co. KG,Wettin-Löbejün,50Hertz,51.6478205,11.8574505,2,4
+74,Wind,"Windfarm Nordisch GmbH ＆ Co. KG, Holtriemer Hammrich VII",Schweindorf,TenneT,53.6237915,7.463248500000001,2,4
+75,Wind,Windfarm Sögel IV GmbH ＆ Co. KG,Sögel,TenneT,52.816244,7.5341995,2,4
+76,Wind,Windfarm Sögel V GmbH ＆ Co. KG,Hüven,TenneT,52.78889,7.593106,2,4
+77,Wind,electricville Windfarm Klettwitz GmbH ＆ Co. KG,Klettwitz,50Hertz,51.5242425,13.8718945,2,4
+78,Solar,electricville Solarfarm Bemerode GmbH ＆ Co. KG,Hannover,TenneT,52.328344,9.819481,1,4
+79,Wind,electricville Windfarm Beuren GmbH,Kliding,Amprion,50.113473,7.079162,1,3.45
+80,Wind,electricville Windfarm Beuren GmbH,Urschmitt,Amprion,50.115576,7.084995,1,3.45
+81,Biomass,Lancepower GmbH,Langenwetzendorf,50Hertz,50.68930966666667,12.113784,3,3.35
+82,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Käbschütztal,50Hertz,51.0999535,13.365386,2,3.3
+83,Wind,WKA Aasbruch I GmbH ＆ Co. KG,Barnstorf,TenneT,52.746936,8.535081,1,3.3
+84,Wind,WKA Aasbruch I GmbH ＆ Co. KG,Drentwede,TenneT,52.74173,8.534878,1,3.3
+85,Biomass,Lancepower GmbH,Bernsdorf,50Hertz,51.36307933333333,14.055886,3,3.22
+86,Wind,electricville Windfarm Lemwerder GmbH,Ganderkesee,TenneT,53.113911,8.589094,1,3.2
+87,Wind,Windfarm Nordisch GmbH ＆ Co. KG Blomberg/Neuschoo II,Blomberg,TenneT,53.552779,7.526852,1,3
+88,Wind,"Windfarm Nordisch GmbH ＆ Co. KG, Holtriemer Hammrich VIII",Utarp,TenneT,53.62043,7.496383,1,3
+89,Biomass,Lancepower GmbH,Klostermansfeld,50Hertz,51.580261500000006,11.4993545,2,2.838
+90,Biomass,Lancepower GmbH,Altentreptow,50Hertz,53.6861795,13.204264,2,2.7199999999999998
+91,Biomass,Lancepower Strom Service GmbH,Reinstedt,50Hertz,51.775416,11.3559605,2,2.7199999999999998
+92,Biomass,Lancepower Strom Service GmbH,Bismark,50Hertz,52.6435442,11.6760942,5,2.68
+93,Biomass,eCG Biomasse,Lustadt,Amprion,49.23389699999999,8.268352,3,2.574
+94,Biomass,Lancepower GmbH,Bitterfeld-Wolfen,50Hertz,51.6338214,12.312599,5,2.558
+95,Biomass,IEW Biogasfarm Wolgast GmbH,Wolgast,50Hertz,54.058,13.748,4,2.512
+96,Biomass,Lancepower Strom Service GmbH,Grimma,50Hertz,51.225693,12.718724,2,2.379
+97,Wind,WKA Aasbruch IV GmbH ＆ Co. KG,Drentwede,TenneT,52.748326,8.526801,1,2.35
+98,Wind,Windfarm Holtriemer Land II GmbH ＆ Co. KG,Westerholt,TenneT,53.620781,7.448847,1,2.3
+99,Wind,Windfarm Holtriemer Land III GmbH ＆ Co. KG,Westerholt,TenneT,53.612332,7.443102,1,2.3
+100,Wind,Windfarm Holtriemer Land IV GmbH ＆ Co. KG,Westerholt,TenneT,53.6196,7.452101,1,2.3
+101,Wind,Windfarm Holtriemer Land V GmbH ＆ Co. KG,Nenndorf,TenneT,53.620048,7.432877,1,2.3
+102,Wind,Windfarm Langewerth I GmbH ＆ Co. KG,Wilhelmshaven,TenneT,53.545165,8.042354,1,2.3
+103,Wind,Windfarm Langewerth II GmbH ＆ Co. KG,Wilhelmshaven,TenneT,53.543006,8.037623,1,2.3
+104,Wind,Windfarm Sögel I GmbH ＆ Co. KG,Sögel,TenneT,52.817074,7.554345,1,2.3
+105,Wind,Windfarm Sögel III GmbH ＆ Co. KG,Sögel,TenneT,52.814607,7.555144,1,2.3
+106,Biomass,Lancepower Biomasse GmbH,Wittenburg,50Hertz,53.512,11.088,3,2.1479999999999997
+107,Biomass,ELW Stromversorgung Leinefelde-Worbis GmbH,Leinefelde-Worbis,50Hertz,51.382099,10.339433,1,2
+108,Wind,Utere Ventos Wiesmoor VII GmbH ＆ Co. KG,Wiesmoor,TenneT,53.38428,7.79883,1,2
+109,Wind,Windfarm Dalena GmbH ＆ Co. KG,Delitzsch,50Hertz,51.549568,12.292486,1,2
+110,Wind,"Windfarm Nordisch GmbH ＆ Co. KG, Holtriemer Hammrich V",Utarp,TenneT,53.61977,7.479342,1,2
+111,Wind,"Windfarm Nordisch GmbH ＆ Co. KG, Holtriemer Hammrich VI",Utarp,TenneT,53.620598,7.483542,1,2
+112,Wind,Windfarm Sögel VII GmbH ＆ Co. KG,Sögel,TenneT,52.80477,7.51671,1,2
+113,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Beeskow,50Hertz,52.198388,14.224931,1,2
+114,Biomass,Lancepower Pelletproduktion GmbH,Osterfeld,50Hertz,51.047045,11.934822,1,1.9
+115,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Kladrum,50Hertz,53.54425633333333,11.799951666666669,3,1.7999999999999998
+116,Biomass,electricville Contracting GmbH,Hannover,TenneT,52.331872,9.83102,1,1.712
+117,Solar,electricville AG,Hannover,TenneT,52.329203,9.821249,4,1.705011
+118,Biomass,Lancepower Strom Service GmbH,Bismark,50Hertz,52.703361,11.54253,3,1.608
+119,Biomass,Lancepower Strom Service GmbH,Großenhain,50Hertz,51.2880855,13.539823,2,1.596
+120,Solar,electricville AG,Neustadt,50Hertz,50.74018866666666,11.781767,3,1.50296
+121,Wind,Windenergieanlage Falkenhagen II GmbH ＆ Co. KG,Pritzwalk,50Hertz,53.225452,12.206808,1,1.5
+122,Wind,Windenergieanlage Falkenhagen l GmbH ＆ Co. KG,Pritzwalk,50Hertz,53.225938,12.211378,1,1.5
+123,Biomass,electricville Contracting Nord,Hamburg,50Hertz,53.544485,10.007057,1,1.487
+124,Biomass,electricville Contracting GmbH,Quickborn,TenneT,53.730992,9.894642,1,1.454
+125,Solar,electricvilleSolution GmbH,Recklinghausen,Amprion,51.583148,7.217422,1,1.21
+126,Biomass,Lancepower GmbH,Klingenthal,50Hertz,50.361436,12.453022,1,1.2
+127,Biomass,Lancepower Biomasse GmbH,Lichtensee,50Hertz,51.377445,13.363531,1,1.191
+128,Biomass,Heizversorgung Wolgast GmbH,Wolgast,50Hertz,54.058738,13.76537,1,1.189
+129,Biomass,Lancepower GmbH,Bad Lobenstein,50Hertz,50.462087,11.636383,1,1.189
+130,Biomass,Lancepower GmbH,Hohenstein-Ernstthal,50Hertz,50.800699,12.731944,1,1.189
+131,Biomass,Lancepower Strom Service GmbH,Flöha,50Hertz,50.852145,13.071521,1,1.189
+132,Biomass,Lancepower Strom Service GmbH,Kirchberg,50Hertz,50.619609,12.506653,1,1.189
+133,Biomass,Lancepower Strom Service GmbH,Lauchhammer,50Hertz,51.493305,13.736401,1,1.189
+134,Biomass,Lancepower Strom Service GmbH,München,TenneT,48.135238,11.522968,1,1.189
+135,Biomass,Lancepower Strom Service GmbH,Oberschleißheim,TenneT,48.254891,11.549763,1,1.189
+136,Biomass,Lancepower Strom Service GmbH,Roßwein,50Hertz,51.061735,13.178086,1,1.189
+137,Solar,electricvilleSolution GmbH,Hamm,Amprion,51.702944,7.769551,2,1.11
+138,Solar,electricville AG,Rietberg,Amprion,51.737936,8.403699,1,1.1
+139,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.3252085,9.82216525,4,1.07638
+140,Biomass,Lancepower GmbH,Gerswalde,50Hertz,53.191,13.779,2,1.052
+141,Biomass,electricville Contracting GmbH,Laatzen,TenneT,52.30583425,9.80633875,5,0.952
+142,Biomass,Lancepower GmbH,Kirchheim,TransnetBW,48.615626,9.475712,1,0.936
+143,Biomass,electricville Contracting Nord,Ahrensburg,TenneT,53.673688,10.241516,2,0.887
+144,Biomass,electricville Contracting GmbH,Clausthal-Zellerfeld,TenneT,51.800107,10.348046,1,0.8
+145,Solar,electricvilleSolution GmbH,Wallscheid,Amprion,50.094807,6.874521,1,0.78
+146,Hydro,electricville AG,Hannover,TenneT,52.3805515,9.6906245,2,0.74
+147,Biomass,Lancepower Strom Service GmbH,Hoym,50Hertz,51.783651,11.331526,1,0.716
+148,Hydro,electricville AG,Hannover,TenneT,52.355476,9.736624,1,0.64
+149,Biomass,Lancepower Strom Service GmbH,Johanngeorgenstadt,50Hertz,50.436536,12.713384,1,0.637
+150,Biomass,electricville Contracting Nord,Halstenbek,TenneT,53.6274565,9.8521595,2,0.603
+151,Wind,electricville Windfarm Portfolio GmbH ＆ Co. KG,Löcknitz,50Hertz,53.460581,14.142642,1,0.6
+152,Biomass,Lancepower GmbH,Schöneck,50Hertz,50.394645,12.345261,1,0.56
+153,Biomass,Lancepower Strom Service GmbH,Beckdorf,TenneT,53.418606,9.644791,1,0.537
+154,Biomass,Lancepower Strom Service GmbH,Altmärkische Wische,50Hertz,52.878817,11.884087,1,0.536
+155,Biomass,Lancepower Strom Service GmbH,Arneburg,50Hertz,52.682642,11.960671,1,0.536
+156,Biomass,Lancepower GmbH,Wanzleben-Börde,50Hertz,52.058344,11.455158,2,0.51
+157,Solar,electricvilleSolution GmbH,Karlsruhe,TransnetBW,49.019815,8.371491,1,0.48
+158,Solar,electricville AG,Ronnenberg,TenneT,52.339182,9.649843,1,0.44
+159,Biomass,electricville Contracting GmbH,Hannover,TenneT,52.347414,9.715738,2,0.40700000000000003
+160,Biomass,electricville Contracting Nord,Glinde,TenneT,53.542963,10.226962,1,0.387
+161,Biomass,electricville Contracting Nord,Bremen,TenneT,53.176739,8.64563,1,0.386
+162,Biomass,electricville Contracting Nord,Buxtehude,TenneT,53.47994,9.692523,1,0.386
+163,Biomass,electricville Contracting Nord,Rendsburg,TenneT,54.306042,9.679969,1,0.386
+164,Biomass,electricville Contracting GmbH,Waldkraiburg,TenneT,48.199275,12.393505,1,0.383
+165,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.42182,9.676072,3,0.36827
+166,Solar,electricville AG,Wedemark,TenneT,52.591321,9.762763,3,0.35
+167,Solar,Lancepower Biomasse GmbH,Pfaffenhofen,TenneT,48.522063,11.50509,2,0.35
+168,Solar,electricville AG,Burgwedel,TenneT,52.578514,9.8553,2,0.348
+169,Biomass,electricville Contracting GmbH,Hannover,TenneT,52.3371755,9.77718875,6,0.318
+170,Biomass,electricville Contracting GmbH,Gablingen,TenneT,48.455257,10.854394,1,0.26
+171,Biomass,electricville Contracting Nord,Geestland,TenneT,53.611524,8.5938,1,0.25
+172,Biomass,electricville Contracting Nord,Hannover,TenneT,52.377511,9.670584,1,0.25
+173,Solar,electricville Erneuerbare GmbH,Hannover,TenneT,52.398519,9.681854,1,0.236
+174,Biomass,electricville Contracting GmbH,Oldenburg,TenneT,53.135293,8.164882,1,0.22
+175,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.3831415,9.737058,3,0.21175
+176,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.35331166666666,9.723931,3,0.21000000000000002
+177,Solar,Lancepower Umwelt GmbH,Wedemark,TenneT,52.591874,9.76169,1,0.2061899999999999
+178,Solar,electricville AG,Hannover,TenneT,52.403421,9.685708,5,0.20364
+179,Biomass,Lancepower GmbH,Limbach-Oberfrohna,50Hertz,50.852227,12.759275,1,0.2
+180,Biomass,eCG Biomasse,Ronnenberg,TenneT,52.316887,9.644498,1,0.2
+181,Solar,electricville AG,Hannover,TenneT,52.375056,9.708023,3,0.18412
+182,Biomass,electricville Contracting GmbH,Dießen,TenneT,47.945597,11.099628,1,0.142
+183,Biomass,electricville Contracting GmbH,Erkelenz,Amprion,51.081045,6.310005,1,0.14
+184,Biomass,electricville Contracting GmbH,Essen,Amprion,51.433175,7.026801,1,0.14
+185,Biomass,electricville Contracting GmbH,Hannover,TenneT,52.336714,9.700378,1,0.14
+186,Biomass,electricville Contracting GmbH,Meersburg,TransnetBW,47.704913,9.271325,1,0.14
+187,Solar,electricville AG,Hamburg,50Hertz,53.626674,10.16861,6,0.1098
+188,Solar,electricville AG,Hannover,TenneT,52.377662,9.798931,9,0.1086
+189,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.323222,9.700408,2,0.10500000000000001
+190,Solar,electricville AG,Langenhagen,TenneT,52.43903,9.728997,1,0.09941
+191,Solar,electricville AG,Hannover,TenneT,52.373278,9.719081,4,0.09937
+192,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.355107,9.765305,1,0.098
+193,Solar,electricville AG,Oldenburg,TenneT,53.179082,8.230082,1,0.0968
+194,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.35862,9.824663,1,0.0924
+195,Solar,electricville AG,Ludwigsburg,TransnetBW,48.893692,9.225544,1,0.08881
+196,Solar,electricville AG,Celle,TenneT,52.6122,10.0402,4,0.08
+197,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.374213,9.66952,2,0.07500000000000001
+198,Solar,electricvilleSolution GmbH,Paulinenaue,50Hertz,52.663396,12.735838,1,0.0726
+199,Solar,electricville AG,Hannover,TenneT,52.337125,9.769098,5,0.064
+200,Solar,electricville AG,Hannover,TenneT,52.381221,9.736011,1,0.06177
+201,Solar,Fiba Stromservice GmbH,Coesfeld,Amprion,51.9435,7.1681,2,0.0592
+202,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.4008,9.7217,2,0.05
+203,Biomass,electricville AG,Burgwedel,TenneT,52.579186,9.854877,1,0.05
+204,Solar,electricville AG,Hannover,TenneT,52.373722,9.768345,1,0.05
+205,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.339554,9.756046,1,0.05
+206,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.368421,9.699616,1,0.05
+207,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.372904,9.74608,1,0.05
+208,Solar,electricvilleSolution GmbH,Ronnenberg,TenneT,52.3194,9.6554,2,0.049100000000000005
+209,Solar,Gemeindewerk Wunstorf GmbH ＆ Co. KG,Wunstorf,TenneT,52.4278,9.4314,4,0.0490099999999999
+210,Solar,electricvilleSolution GmbH,Hamburg,50Hertz,53.579034,10.036789,1,0.041
+211,Solar,electricville AG,Hannover,TenneT,52.3586,9.7558,2,0.0315
+212,Solar,electricville AG,Hannover,TenneT,52.3667,9.7167,1,0.03
+213,Solar,electricville AG,Hannover,TenneT,52.3736,9.7371,1,0.0288
+214,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.3697,9.7521,1,0.02436
+215,Solar,electricville AG,Hamburg,50Hertz,53.5497,9.9794,3,0.024
+216,Solar,electricvilleSolution GmbH,Freiburg,TransnetBW,47.9793,7.822,2,0.0225
+217,Biomass,electricville Contracting GmbH,Hannover,TenneT,52.3874,9.7465,1,0.022
+218,Biomass,electricville Contracting GmbH,Hemmingen,TenneT,52.3143,9.7236,1,0.022
+219,Biomass,electricville Contracting GmbH,Garbsen,TenneT,52.4353,9.611,1,0.02
+220,Solar,Fiba Stromservice GmbH,Bad Salzdetfurth,TenneT,52.06,10.01,1,0.02
+221,Solar,Fiba Stromservice GmbH,Halle,50Hertz,51.483,11.972,1,0.02
+222,Solar,electricville AG,Hannover,TenneT,52.4008,9.7217,1,0.02
+223,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.3973,9.7707,1,0.02
+224,Solar,electricville AG,Hannover,TenneT,52.4026,9.7939,1,0.01988
+225,Solar,electricville AG,Hasloh,TenneT,53.6667,9.9167,2,0.018000000000000002
+226,Biomass,electricville Contracting GmbH,Hannover,TenneT,52.3613,9.8344,1,0.016
+227,Solar,electricville AG,Hannover,TenneT,52.3697,9.7521,1,0.012
+228,Solar,electricville Contracting Nord,Husby,TenneT,54.7333,9.5667,1,0.0105
+229,Solar,electricvilleSolution GmbH,Lehrte,TenneT,52.3719,9.9792,1,0.01
+230,Solar,electricville Contracting GmbH,Östringen,TransnetBW,49.2191,8.7119,1,0.008
+231,Solar,electricvilleSolution GmbH,Hannover,TenneT,52.3895,9.8502,1,0.008
+232,Biomass,electricville Contracting GmbH,Bad Bentheim,TenneT,52.3007,7.1576,1,0.0075
+233,Biomass,electricville Contracting GmbH,Barsbüttel,TenneT,53.5667,10.1667,1,0.0072
+234,Biomass,electricville Contracting Nord,Hamburg,50Hertz,53.5847,9.7564,1,0.0072
+235,Solar,Fiba Stromservice GmbH,Sülzetal,50Hertz,52.0167,11.55,1,0.0046
+236,Solar,Lancepower GmbH,Teltow,50Hertz,52.4031,13.2601,1,0.002025
+237,Solar,pth GmbH,Ahlden,TenneT,52.7601,9.5543,1,0.0008
+238,Solar,pth GmbH,Hademstorf,TenneT,52.7121,9.6139,1,0.0008
+239,Solar,pth GmbH,Hemmingen,TenneT,52.3143,9.7236,1,0.0008
+240,Solar,pth GmbH,Hodenhagen,TenneT,52.7589,9.5888,1,0.0008

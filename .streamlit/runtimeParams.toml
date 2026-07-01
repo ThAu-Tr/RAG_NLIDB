@@ -1,0 +1,3 @@
+db_mono = "renewables_climate_mart"
+current_tbl = "fact_weather_daily"
+language = "English"
