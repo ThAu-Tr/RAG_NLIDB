@@ -45,7 +45,6 @@ class dim_date{
    TEXT weekday
    INTEGER weekday_num
    INTEGER year
-   INTEGER year_iso
 }
 class fact_generation_daily{
  INTEGER asset_id

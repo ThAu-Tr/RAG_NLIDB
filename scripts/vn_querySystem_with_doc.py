@@ -143,12 +143,6 @@ class VN_QuerySystem(Qdrant_VectorStore, OpenAI_Chat):
 
         if initial_prompt is None:
             initial_prompt = f"You are a {self.dialect} expert. Generate {self.dialect} SQL query only and with no explanation. Instead of '*' always name all the columns. If there are duplicate column names, use aliases by using the table-name as a prefix with an '_' as a seperator. \n"
-            #initial_prompt += """When combining multiple fact tables:
-#1. Identify the grain of each fact table.
-#2. Combine them only through shared dimensions or a shared key set that preserves grain.
-#3. Use all required predicates for the join, not a subset.
-#4. If grains differ, aggregate first to a common grain.
-#5. Avoid joins that can multiply rows."""
 
         initial_prompt = self.add_ddl_to_prompt(
             initial_prompt, ddl_list, max_tokens=self.max_tokens
@@ -513,12 +507,6 @@ class VN_QuerySystem(Qdrant_VectorStore, OpenAI_Chat):
 
     def get_correction_prompt(self, question, sql, message, **kwargs) -> str:
         initial_prompt = f"You are a {self.dialect} expert. There is a SQL-Query generated based on the following Database Schema to respond to the Question. Executing this SQL-Query has resulted in an error and you need to fix it based on the Error-Message. \n"#, while following the System-Interpretation. \n"
-        #initial_prompt += """When combining multiple fact tables:
-#1. Identify the grain of each fact table.
-#2. Combine them only through shared dimensions or a shared key set that preserves grain.
-#3. Use all required predicates for the join, not a subset.
-#4. If grains differ, aggregate first to a common grain.
-#5. Avoid joins that can multiply rows."""
 
         ddl_list = self.get_related_ddl(question, **kwargs)
         initial_prompt = self.add_ddl_to_prompt(
@@ -543,22 +531,6 @@ class VN_QuerySystem(Qdrant_VectorStore, OpenAI_Chat):
         initial_prompt += '\n Please respond with a Python-Dictionary storing the key "corrected_SQL" written as a one-liner. \n'
 
         message_log = [self.system_message(initial_prompt)]
-
-        # Added for multi-turn-functionality
-        #utterance_list = self._session.get_history()[-6:-1]
-        #if len(utterance_list) > 0:
-            #message_log.append(self.system_message('Past interactions in this session: '))
-            
-        #for utterance in utterance_list:
-        #    if utterance is None:
-        #        print("no history")
-        #    else:
-        #        if utterance is not None and "question" in utterance and "query" in utterance:
-        #            message_log.append(self.user_message(utterance["question"]))
-                    #if utterance["query"] is not None:
-                        #message_log.append(self.assistant_message(utterance["query"]))
-                    #if utterance["summary"] is not None:
-                        #message_log.append(self.assistant_message("Result-Summary: " + utterance["summary"]))
 
         return message_log
     
@@ -587,7 +559,6 @@ class VN_QuerySystem(Qdrant_VectorStore, OpenAI_Chat):
 
     def get_summary_prompt(self, question: str, df: pd.DataFrame, **kwargs) -> str:
         alternatives = kwargs.get('alternatives')
-        #self.log(title="Alternatives", message=str(alternatives))
         
         message_log = [
             self.system_message(
@@ -904,28 +875,6 @@ class VN_QuerySystem(Qdrant_VectorStore, OpenAI_Chat):
             message_log.append(self.user_message(message))
 
         return message_log
-    """
-
-    def get_fk_prediction_prompt(self, file_list, pred_pk_dict, table_names, **kwargs):
-
-        initial_prompt = (
-            "Predict which of the table columns are foreign keys.\n"
-            "A foreign key must reference a column with unique values in another listed table.\n"
-            "Use ONLY the tables and columns listed below.\n"
-            f"Valid table names: {table_names}\n"
-            "Do NOT invent tables or columns.\n"
-            "If no valid foreign keys exist, return {}.\n"
-            "Return the result as a one-line Python dictionary:\n"
-            "{'table.foreignKey': 'referenceTable.referenceColumn'}\n"
-            "Schema:\n"
-        )
-
-        initial_prompt = self.add_ddl_to_prompt(initial_prompt, file_list, max_tokens=self.max_tokens)
-        initial_prompt += "\nPredicted primary keys: " + str(pred_pk_dict)
-        print(initial_prompt)
-
-        return [self.system_message(initial_prompt)]
-    """
     
     def extract_keyDict(self,llm_response):
         start = "{"

@@ -1,136 +1,9 @@
 import streamlit as st
 import pandas as pd
-from scripts import vanna_calls_ds as vc
-
-import pandas as pd
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import plotly.express as px
-import streamlit as st
 
-def create_decarbonization_plot(df):
-    fig = go.Figure()
-
-    # Stacked bar chart for percentages
-    fig.add_trace(go.Bar(
-        x=df['quarter'], y=df['Fossil_Percentage'],
-        name='Fossil %', marker_color= "#E07A7A", # Soft Red
-        text= df['Fossil_Percentage'].round(2).astype(str) + '%'
-        
-    ))
-    fig.add_trace(go.Bar(
-        x=df['quarter'], y=df['Renewable_Percentage'],
-        name='Renewable %', marker_color= "#8CCF9E", # Soft Green
-        text= df['Renewable_Percentage'].round(2).astype(str) + '%'
-
-    ))
-    fig.add_trace(go.Bar(
-        x=df['quarter'], y=df['Nuclear_Percentage'],
-        name='Nuclear %', marker_color= "#6FA8DC", # Soft Blue
-        text= df['Nuclear_Percentage'].round(2).astype(str) + '%'
-
-    ))
-
-    # Line chart for total emissions
-    #fig.add_trace(go.Scatter(
-        #x=df['quarter'], y=df['total_emissions'],
-        #name='Total Emissions (MtCO2e)', mode='lines+markers',
-        #yaxis='y2', line=dict(color="#292525", width=3) # Cyan line
-    #))
-
-    # Line chart for emissions
-    fig.add_trace(go.Scatter(
-        x=df['quarter'],
-        y=df['total_emissions'],
-        name='Total Emissions (MtCO2e)',
-        mode='lines+markers',
-        line=dict(color='black')
-    ))
-
-    # Update layout
-    fig.update_layout(
-        barmode='stack',
-        template="plotly_white",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-        yaxis=dict(title='Percentage (%)', range=[0, 100]),
-        yaxis2=dict(title='Emissions (MtCO2e)', overlaying='y', side='right', showgrid=False, zeroline=False),
-        xaxis=dict(title='Quarter'),
-        margin=dict(l=20, r=20, t=50, b=20),
-        height=500
-    )
-    return fig
-
-def create_potential_gap_plot(df):
-    """
-    Erstellt ein Dumbbell-Plot (Hantel-Diagramm), um die tatsächliche Wind-Erzeugung 
-    mit der simulierten Erzeugung (Generation Capability) zu vergleichen.
-    """
-    fig = go.Figure()
-
-    # 1. Punkte für die tatsächliche Erzeugung (Frankreich)
-    fig.add_trace(go.Scatter(
-        x=df['actual_wind_generation'],
-        y=df['season'],
-        mode='markers',
-        name='Actual Wind Generation (FR)',
-        marker=dict(color='blue', size=10),#color='#2c3e50', size=12),
-        hovertemplate='Tatsächlich: %{x:.2f} TWh<extra></extra>'
-    ))
-
-    # 2. Punkte für die simulierte Erzeugung (Benchmark DE)
-    fig.add_trace(go.Scatter(
-        x=df['simulated_generation'],
-        y=df['season'],
-        mode='markers',
-        name='Simulated (DE Capability)',
-        marker=dict(color='orange', size=10),#'#e67e22', size=12),
-        hovertemplate='Simuliert: %{x:.2f} TWh<extra></extra>'
-    ))
-
-    # 3. Verbindungslinien und Prozent-Labels
-    for i in range(len(df)):
-        # Wir nutzen iloc, um sicherzugehen, dass wir die richtige Zeile erwischen
-        row = df.iloc[i]
-        
-        # Die "Hantel-Stange"
-        fig.add_trace(go.Scatter(
-            x=[row['actual_wind_generation'], row['simulated_generation']],
-            y=[row['season'], row['season']],
-            mode='lines',
-            line=dict(color='gray',width=2),#'#bdc3c7', width=3),
-            showlegend=False,
-            hoverinfo='skip'
-        ))
-
-        # Das Prozent-Label mittig über der Linie
-        fig.add_trace(go.Scatter(
-            x=[(row['actual_wind_generation'] + row['simulated_generation']) / 2],
-            y=[row['season']],
-            text=[f"+{row['potential_gap_percentage']:.1f}%"],
-            mode='text',
-            textposition="top center",
-            #textfont=dict(color='#e67e22', size=12, family="Arial Black"),
-            showlegend=False,
-            hoverinfo='skip'
-        ))
-
-    # Layout-Optimierung für die Landing Page
-    fig.update_layout(
-        #title=dict(
-            #text='<b>Potential Growth Gap:</b> Windkraft-Potenzial Frankreichs',
-            #x=0.5,
-            #xanchor='center'
-        #),
-        xaxis_title='Generation (TWh)',
-        yaxis_title='Season',
-        margin=dict(l=20, r=20, t=60, b=20),
-        plot_bgcolor='rgba(0,0,0,0)',
-        paper_bgcolor='rgba(0,0,0,0)',
-        xaxis=dict(gridcolor='#ecf0f1', zeroline=False),
-        yaxis=dict(tickmode='linear', autorange="reversed"), # Optional: Winter oben
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
-    )
-
-    return fig
 
 def render_minimal_energy_mix(df):
     """
@@ -255,100 +128,6 @@ def render_portfolio_map(df):
     )
 
     return fig
-
-
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import pandas as pd
-
-def create_generation_yoy_plot(df: pd.DataFrame):
-    """
-    Generates a Plotly figure for YoY analysis. 
-    Returns an Indicator for single records or a Subplot for time-series data.
-    """
-    if df.empty:
-        return go.Figure().update_layout(title="No data available")
-
-    # CASE 1: Single Record (e.g., a specific month or year total)
-    if len(df) == 1:
-        row = df.iloc[0]
-        fig = go.Figure(
-            go.Indicator(
-                mode="number+delta",
-                value=row["generation_mwh_2025"],
-                delta={"reference": row["generation_mwh_2024"], "valueformat": ".2f"},
-                title={"text": f"{row['month_name']} Generation (2025 vs 2024)"},
-            )
-        )
-        fig.update_layout(height=400)
-
-    # CASE 2: Multi-row Data (Time-series / Month-over-Month)
-    else:
-        fig = make_subplots(
-            rows=2,
-            cols=1,
-            shared_xaxes=True,
-            vertical_spacing=0.12,
-            subplot_titles=("Generation MWh (2024 vs 2025)", "YoY Growth MWh"),
-            specs=[[{}], [{}]],
-        )
-
-        # Trace 1: 2024 Line
-        fig.add_trace(
-            go.Scatter(
-                x=df["month_name"],
-                y=df["generation_mwh_2024"],
-                mode="lines+markers",
-                name="Generation 2024",
-                line=dict(color="#636EFA")
-            ),
-            row=1, col=1,
-        )
-
-        # Trace 2: 2025 Line
-        fig.add_trace(
-            go.Scatter(
-                x=df["month_name"],
-                y=df["generation_mwh_2025"],
-                mode="lines+markers",
-                name="Generation 2025",
-                line=dict(color="#EF553B")
-            ),
-            row=1, col=1,
-        )
-
-        # Trace 3: YoY Absolute Growth Bar
-        fig.add_trace(
-            go.Bar(
-                x=df["month_name"],
-                y=df["yoy_growth_mwh"],
-                name="YoY Growth MWh",
-                marker_color="#00CC96",
-                text=df["yoy_growth_pct"].map(lambda v: f"{v:.1f}%"),
-                textposition="outside",
-                hovertemplate="Month: %{x}<br>YoY Growth MWh: %{y:,.2f}<br>YoY Growth %: %{text}<extra></extra>",
-            ),
-            row=2, col=1,
-        )
-
-        # Axis and Layout Updates
-        fig.update_xaxes(title_text="Month", row=2, col=1)
-        fig.update_yaxes(title_text="MWh", row=1, col=1)
-        fig.update_yaxes(title_text="Growth MWh", row=2, col=1)
-
-        fig.update_layout(
-            template="plotly_white",
-            legend_title_text="",
-            height=800,
-            margin=dict(t=80, l=60, r=30, b=60),
-            hovermode="x unified"
-        )
-
-    return fig
-
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import pandas as pd
 
 def create_energy_source_breakdown_plot(df: pd.DataFrame):
     """
@@ -612,21 +391,9 @@ with col2:
     
     # 2. Only plot if a figure was actually returned
     if fig:
-        st.plotly_chart(fig, use_container_width=True, theme=None, key="mix_chart")    #st.info("""**❓ Beispielanfrage:**  
-    #        „Provide a breakdown of the renewable energy mix for 2025 with a donut chart.“""")
-    
+        st.plotly_chart(fig, use_container_width=True, theme=None, key="mix_chart")
 
-
-
-#st.markdown("""
-#Dieses System ist ein Prototyp für eine **natürlichsprachliche
-#Datenbankschnittstelle (Natural Language Interface to Database, NLIDB)**. Es ermöglicht, relationale Datenbanken mithilfe
-#**natürlicher Sprache** zu befragen und zu analysieren – ohne SQL-Kenntnisse
-#vorauszusetzen.
-#""")
-
-st.markdown(#"""
-#Der Prototyp basiert auf einer **Retrieval-Augmented-Generation-Architektur (RAG)**, bei der ein Sprachmodell durch *Datenbankschema, SQL-Beispiele und Kontextinformationen* unterstützt wird.  
+st.markdown(
 """
 Im Verlauf der Entwicklung entstanden drei aufeinander aufbauende Systemstufen:  
 - **Query-System** - Generiert SQL-Abfragen aus natürlichen Fragen  
@@ -635,16 +402,6 @@ Im Verlauf der Entwicklung entstanden drei aufeinander aufbauende Systemstufen:
 
 Gemeinsam verdeutlichen diese Stufen, wie sich auf Basis moderner Sprachmodelle schrittweise ein interaktives Analysewerkzeug entwickeln lässt. 
 """)
-
-# --------------------------------------------------
-# Mini Use Case
-# --------------------------------------------------
-#st.markdown("""
-### Beispielhafte Nutzung
-
-#> **„Welche fünf Künstler haben den meisten Umsatz generiert?“**  
-#> → automatisch interpretiert, in SQL übersetzt und auf der Datenbank ausgeführt
-#""")
 
 st.divider()
 
@@ -950,9 +707,7 @@ with st.expander("🗄️ Demonstrationsdatensatz: Renewables-Climate Mart", exp
                     Die <b>Erzeugungsanlagen</b> des Electricville-Konzerns bilden <b>klare regionale Cluster</b> innerhalb Deutschlands. Insbesondere die größten <b>installierten Kapazitäten</b> entfallen auf <b>Windkraftanlagen in Norddeutschland</b>, während <b>Biomasse- und Solaranlagen</b> das Portfolio durch eine breitere geografische Verteilung ergänzen.
         </div>
         """, unsafe_allow_html=True)
-        #st.divider()    
-        #col_left, col_right = st.columns(2)
-        #with col_left:
+      
         with st.expander("📝 Details & Implementation"):
                 t_sql, t_data, t_conf = st.tabs(["SQL Code", "Data", "Visualizer Config"])
                 with t_sql:
@@ -989,8 +744,6 @@ ORDER BY
 """
                     st.code(sql_query_string, language="sql",wrap_lines=True)
             
-        #with col_right:
-            # Die Tabelle "verstecken" wir in einem Expander
                 with t_data:
                     st.caption("Folgende Tabelle wurde vom NLIDB aus dem Electricity-Climate Mart extrahiert.")
                     st.dataframe(example1_df, use_container_width=True)
@@ -1038,7 +791,7 @@ ORDER BY
             st.markdown("""
             <div style="background-color: #f0f2f6; padding: 15px; border-left: 5px solid #007bff; border-radius: 5px; margin-bottom: 20px;">
                 <b style="color: #555; font-size: 0.9rem;">🗨️ Anfrage 1:</b><br>
-                <i>Compare the monthly renewable energy generation between the iso_years 2024 and 2025 on individual energy source level. Display the progress for both years and calculate the year-over-year growth in both absolute (MWh) and percentage terms. Add a 'Total Renewables' summary row as a baseline comparison.</i>
+                <i>Compare the monthly renewable energy generation between the years 2024 and 2025 on individual energy source level. Display the progress for both years and calculate the year-over-year growth in both absolute (MWh) and percentage terms. Add a 'Total Renewables' summary row as a baseline comparison.</i>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1058,75 +811,85 @@ ORDER BY
                 t_sql, t_data, t_conf = st.tabs(["SQL Code", "Data", "Visualizer Config"])
                 with t_sql:
                     st.code("""-- SQL 1: Growth-Comparision
-WITH monthly_gen AS (
-  SELECT
-    dim_date.year_iso AS year_iso,
-    dim_date.month AS month,
-    dim_energy_source_h.energy_source_name AS energy_source_name,
-    SUM(fact_generation.generation_mwh) AS generation_mwh
-  FROM fact_generation
-  JOIN dim_date
-    ON fact_generation.date_id = dim_date.date_id
-  JOIN dim_asset
-    ON fact_generation.asset_id = dim_asset.asset_id
-  JOIN dim_energy_source_h
-    ON dim_asset.energy_source_id = dim_energy_source_h.energy_source_id
-  WHERE dim_date.year_iso IN (2024, 2025)
-    AND dim_energy_source_h.energy_source_group = 'Renewable'
-  GROUP BY dim_date.year_iso, dim_date.month, dim_energy_source_h.energy_source_name
+WITH monthly_source AS (
+    SELECT
+        d.month AS month,
+        d.year AS year,
+        es.energy_source_name AS energy_source_name,
+        SUM(fg.generation_mwh) AS generation_mwh
+    FROM fact_generation_daily fg
+    JOIN dim_date d
+        ON fg.date_id = d.date_id
+    JOIN dim_asset a
+        ON fg.asset_id = a.asset_id
+    JOIN dim_energy_source_h es
+        ON a.energy_source_id = es.energy_source_id
+    WHERE d.year IN (2024, 2025)
+      AND es.energy_source_group = 'Renewable'
+    GROUP BY
+        d.month,
+        d.year,
+        es.energy_source_name
 ),
-pivoted AS (
-  SELECT
-    month,
-    energy_source_name,
-    SUM(CASE WHEN year_iso = 2024 THEN generation_mwh ELSE 0 END) AS generation_mwh_2024,
-    SUM(CASE WHEN year_iso = 2025 THEN generation_mwh ELSE 0 END) AS generation_mwh_2025
-  FROM monthly_gen
-  GROUP BY month, energy_source_name
-),
-total_renewables AS (
-  SELECT
-    month,
-    'Total Renewables' AS energy_source_name,
-    SUM(generation_mwh_2024) AS generation_mwh_2024,
-    SUM(generation_mwh_2025) AS generation_mwh_2025
-  FROM pivoted
-  GROUP BY month
+monthly_total AS (
+    SELECT
+        d.month AS month,
+        d.year AS year,
+        'Total Renewables' AS energy_source_name,
+        SUM(fg.generation_mwh) AS generation_mwh
+    FROM fact_generation_daily fg
+    JOIN dim_date d
+        ON fg.date_id = d.date_id
+    JOIN dim_asset a
+        ON fg.asset_id = a.asset_id
+    JOIN dim_energy_source_h es
+        ON a.energy_source_id = es.energy_source_id
+    WHERE d.year IN (2024, 2025)
+      AND es.energy_source_group = 'Renewable'
+    GROUP BY
+        d.month,
+        d.year
 ),
 combined AS (
-  SELECT
-    month,
-    energy_source_name,
-    generation_mwh_2024,
-    generation_mwh_2025,
-    (generation_mwh_2025 - generation_mwh_2024) AS yoy_growth_mwh,
-    CASE
-      WHEN generation_mwh_2024 = 0 THEN NULL
-      ELSE ((generation_mwh_2025 - generation_mwh_2024) * 100.0 / generation_mwh_2024)
-    END AS yoy_growth_pct
-  FROM pivoted
-  UNION ALL
-  SELECT
-    month,
-    energy_source_name,
-    generation_mwh_2024,
-    generation_mwh_2025,
-    (generation_mwh_2025 - generation_mwh_2024) AS yoy_growth_mwh,
-    CASE
-      WHEN generation_mwh_2024 = 0 THEN NULL
-      ELSE ((generation_mwh_2025 - generation_mwh_2024) * 100.0 / generation_mwh_2024)
-    END AS yoy_growth_pct
-  FROM total_renewables
+    SELECT
+        month,
+        year,
+        energy_source_name,
+        generation_mwh
+    FROM monthly_source
+    UNION ALL
+    SELECT
+        month,
+        year,
+        energy_source_name,
+        generation_mwh
+    FROM monthly_total
+),
+pivoted AS (
+    SELECT
+        month,
+        energy_source_name,
+        SUM(CASE WHEN year = 2024 THEN generation_mwh ELSE 0 END) AS generation_mwh_2024,
+        SUM(CASE WHEN year = 2025 THEN generation_mwh ELSE 0 END) AS generation_mwh_2025
+    FROM combined
+    GROUP BY
+        month,
+        energy_source_name
 )
 SELECT
-  combined.month,
-  combined.energy_source_name,
-  combined.generation_mwh_2024,
-  combined.generation_mwh_2025,
-  combined.yoy_growth_mwh,
-  combined.yoy_growth_pct
-FROM combined
-ORDER BY combined.month, CASE WHEN combined.energy_source_name = 'Total Renewables' THEN 0 ELSE 1 END, combined.energy_source_name;
+    month,
+    energy_source_name,
+    generation_mwh_2024,
+    generation_mwh_2025,
+    generation_mwh_2025 - generation_mwh_2024 AS yoy_growth_mwh,
+    CASE
+        WHEN generation_mwh_2024 = 0 THEN NULL
+        ELSE ((generation_mwh_2025 - generation_mwh_2024) / generation_mwh_2024) * 100
+    END AS yoy_growth_pct
+FROM pivoted
+ORDER BY
+    month,
+    energy_source_name;
 """, language="sql", wrap_lines=True)
                 with t_data:
                     st.dataframe(example3_df)
@@ -1160,7 +923,7 @@ ORDER BY combined.month, CASE WHEN combined.energy_source_name = 'Total Renewabl
             st.markdown("""
             <div style="background-color: #f0f2f6; padding: 15px; border-left: 5px solid #007bff; border-radius: 5px; margin-bottom: 20px;">
                 <b style="color: #555; font-size: 0.9rem;">🗨️ Anfrage 2:</b><br>
-                <i>Analyze the factors that may explain changes in monthly wind energy generation between the iso_years 2024 and 2025. Report generation for both years and the year-over-year difference in MWh, together with the corresponding differences in total installed wind asset capacity (MW) and average wind power density for areas with wind assets.</i>
+                <i>Analyze the factors that may explain changes in monthly wind energy generation between the years 2024 and 2025. Report generation for both years and the year-over-year difference in MWh, together with the corresponding differences in total installed wind asset capacity (MW) and average wind power density for areas with wind assets.</i>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1183,25 +946,25 @@ ORDER BY combined.month, CASE WHEN combined.energy_source_name = 'Total Renewabl
 WITH monthly_wind_generation AS (
     SELECT
         d.month,
-        d.year_iso,
+        d.year,
         SUM(fg.generation_mwh) AS generation_mwh
     FROM fact_generation_daily fg
     JOIN dim_date d ON fg.date_id = d.date_id
     JOIN dim_asset a ON fg.asset_id = a.asset_id
     JOIN dim_energy_source_h es ON a.energy_source_id = es.energy_source_id
     WHERE es.energy_source_name = 'Wind'
-      AND d.year_iso IN (2024, 2025)
-    GROUP BY d.month, d.year_iso
+      AND d.year IN (2024, 2025)
+    GROUP BY d.month, d.year
 ),
 monthly_wind_capacity AS (
     SELECT
         d.month,
-        d.year_iso,
+        d.year,
         (
             SELECT SUM(a2.generation_capacity_mw)
             FROM dim_asset a2
             JOIN dim_date d_comm ON a2.commissioning_date_id = d_comm.date_id
-            WHERE (d_comm.year_iso < d.year_iso OR (d_comm.year_iso = d.year_iso AND d_comm.month <= d.month))
+            WHERE (d_comm.year < d.year OR (d_comm.year = d.year AND d_comm.month <= d.month))
               AND a2.energy_source_id = es.energy_source_id
         ) AS installed_capacity_mw
     FROM dim_date d
@@ -1210,24 +973,24 @@ monthly_wind_capacity AS (
         FROM dim_energy_source_h es
         WHERE es.energy_source_name = 'Wind'
     ) es
-    WHERE d.year_iso IN (2024, 2025)
-    GROUP BY d.month, d.year_iso, es.energy_source_id
+    WHERE d.year IN (2024, 2025)
+    GROUP BY d.month, d.year, es.energy_source_id
 ),
 monthly_wind_weather AS (
     SELECT
         d.month,
-        d.year_iso,
+        d.year,
         AVG(fw.avg_wind_power_density_w_per_m2) AS avg_wind_power_density_w_per_m2
     FROM fact_weather_daily fw
     JOIN dim_date d ON fw.date_id = d.date_id
-    WHERE d.year_iso IN (2024, 2025)
+    WHERE d.year IN (2024, 2025)
       AND fw.area_id IN (
           SELECT DISTINCT a.area_id
           FROM dim_asset a
           JOIN dim_energy_source_h es ON a.energy_source_id = es.energy_source_id
           WHERE es.energy_source_name = 'Wind'
       )
-    GROUP BY d.month, d.year_iso
+    GROUP BY d.month, d.year
 ),
 pivoted AS (
     SELECT
@@ -1241,20 +1004,20 @@ pivoted AS (
     FROM monthly_wind_generation g
     LEFT JOIN monthly_wind_generation g2
         ON g.month = g2.month
-       AND g2.year_iso = 2025
+       AND g2.year = 2025
     LEFT JOIN monthly_wind_capacity c
         ON g.month = c.month
-       AND c.year_iso = 2024
+       AND c.year = 2024
     LEFT JOIN monthly_wind_capacity c2
         ON g.month = c2.month
-       AND c2.year_iso = 2025
+       AND c2.year = 2025
     LEFT JOIN monthly_wind_weather w
         ON g.month = w.month
-       AND w.year_iso = 2024
+       AND w.year = 2024
     LEFT JOIN monthly_wind_weather w2
         ON g.month = w2.month
-       AND w2.year_iso = 2025
-    WHERE g.year_iso = 2024
+       AND w2.year = 2025
+    WHERE g.year = 2024
 )
 SELECT
     month,
@@ -1333,25 +1096,25 @@ ORDER BY month;
 WITH monthly_wind_generation AS (
     SELECT
         d.month,
-        d.year_iso,
+        d.year,
         SUM(fg.generation_mwh) AS generation_mwh
     FROM fact_generation_daily fg
     JOIN dim_date d ON fg.date_id = d.date_id
     JOIN dim_asset a ON fg.asset_id = a.asset_id
     JOIN dim_energy_source_h es ON a.energy_source_id = es.energy_source_id
     WHERE es.energy_source_name = 'Wind'
-      AND d.year_iso IN (2024, 2025)
-    GROUP BY d.month, d.year_iso
+      AND d.year IN (2024, 2025)
+    GROUP BY d.month, d.year
 ),
 monthly_wind_capacity AS (
     SELECT
         d.month,
-        d.year_iso,
+        d.year,
         (
             SELECT SUM(a2.generation_capacity_mw)
             FROM dim_asset a2
             JOIN dim_date d_comm ON a2.commissioning_date_id = d_comm.date_id
-            WHERE (d_comm.year_iso < d.year_iso OR (d_comm.year_iso = d.year_iso AND d_comm.month <= d.month))
+            WHERE (d_comm.year < d.year OR (d_comm.year = d.year AND d_comm.month <= d.month))
               AND a2.energy_source_id = es.energy_source_id
         ) AS installed_capacity_mw
     FROM dim_date d
@@ -1360,24 +1123,24 @@ monthly_wind_capacity AS (
         FROM dim_energy_source_h es
         WHERE es.energy_source_name = 'Wind'
     ) es
-    WHERE d.year_iso IN (2024, 2025)
-    GROUP BY d.month, d.year_iso, es.energy_source_id
+    WHERE d.year IN (2024, 2025)
+    GROUP BY d.month, d.year, es.energy_source_id
 ),
 monthly_wind_weather AS (
     SELECT
         d.month,
-        d.year_iso,
+        d.year,
         AVG(fw.avg_wind_power_density_w_per_m2) AS avg_wind_power_density_w_per_m2
     FROM fact_weather_daily fw
     JOIN dim_date d ON fw.date_id = d.date_id
-    WHERE d.year_iso IN (2024, 2025)
+    WHERE d.year IN (2024, 2025)
       AND fw.area_id IN (
           SELECT DISTINCT a.area_id
           FROM dim_asset a
           JOIN dim_energy_source_h es ON a.energy_source_id = es.energy_source_id
           WHERE es.energy_source_name = 'Wind'
       )
-    GROUP BY d.month, d.year_iso
+    GROUP BY d.month, d.year
 ),
 paired AS (
     SELECT
@@ -1388,20 +1151,20 @@ paired AS (
     FROM monthly_wind_generation g24
     JOIN monthly_wind_generation g25
         ON g24.month = g25.month
-       AND g24.year_iso = 2024
-       AND g25.year_iso = 2025
+       AND g24.year = 2024
+       AND g25.year = 2025
     JOIN monthly_wind_capacity c24
         ON g24.month = c24.month
-       AND c24.year_iso = 2024
+       AND c24.year = 2024
     JOIN monthly_wind_capacity c25
         ON g24.month = c25.month
-       AND c25.year_iso = 2025
+       AND c25.year = 2025
     JOIN monthly_wind_weather w24
         ON g24.month = w24.month
-       AND w24.year_iso = 2024
+       AND w24.year = 2024
     JOIN monthly_wind_weather w25
         ON g24.month = w25.month
-       AND w25.year_iso = 2025
+       AND w25.year = 2025
 )
 SELECT
     corr(growth_mwh, diff_installed_capacity_mw) AS correlation_growth_capacity,
@@ -1420,25 +1183,25 @@ FROM paired;
 WITH monthly_solar_generation AS (
     SELECT
         d.month,
-        d.year_iso,
+        d.year,
         SUM(fg.generation_mwh) AS generation_mwh
     FROM fact_generation_daily fg
     JOIN dim_date d ON fg.date_id = d.date_id
     JOIN dim_asset a ON fg.asset_id = a.asset_id
     JOIN dim_energy_source_h es ON a.energy_source_id = es.energy_source_id
     WHERE es.energy_source_name = 'Solar'
-      AND d.year_iso IN (2024, 2025)
-    GROUP BY d.month, d.year_iso
+      AND d.year IN (2024, 2025)
+    GROUP BY d.month, d.year
 ),
 monthly_solar_capacity AS (
     SELECT
         d.month,
-        d.year_iso,
+        d.year,
         (
             SELECT SUM(a2.generation_capacity_mw)
             FROM dim_asset a2
             JOIN dim_date d_comm ON a2.commissioning_date_id = d_comm.date_id
-            WHERE (d_comm.year_iso < d.year_iso OR (d_comm.year_iso = d.year_iso AND d_comm.month <= d.month))
+            WHERE (d_comm.year < d.year OR (d_comm.year = d.year AND d_comm.month <= d.month))
               AND a2.energy_source_id = es.energy_source_id
         ) AS installed_capacity_mw
     FROM dim_date d
@@ -1447,24 +1210,24 @@ monthly_solar_capacity AS (
         FROM dim_energy_source_h es
         WHERE es.energy_source_name = 'Solar'
     ) es
-    WHERE d.year_iso IN (2024, 2025)
-    GROUP BY d.month, d.year_iso, es.energy_source_id
+    WHERE d.year IN (2024, 2025)
+    GROUP BY d.month, d.year, es.energy_source_id
 ),
 monthly_solar_weather AS (
     SELECT
         d.month,
-        d.year_iso,
+        d.year,
         AVG(fw.total_solar_irradiation_kwh_per_m2) AS total_solar_irradiation_kwh_per_m2
     FROM fact_weather_daily fw
     JOIN dim_date d ON fw.date_id = d.date_id
-    WHERE d.year_iso IN (2024, 2025)
+    WHERE d.year IN (2024, 2025)
       AND fw.area_id IN (
           SELECT DISTINCT a.area_id
           FROM dim_asset a
           JOIN dim_energy_source_h es ON a.energy_source_id = es.energy_source_id
           WHERE es.energy_source_name = 'Solar'
       )
-    GROUP BY d.month, d.year_iso
+    GROUP BY d.month, d.year
 ),
 paired AS (
     SELECT
@@ -1475,20 +1238,20 @@ paired AS (
     FROM monthly_solar_generation g24
     JOIN monthly_solar_generation g25
         ON g24.month = g25.month
-       AND g24.year_iso = 2024
-       AND g25.year_iso = 2025
+       AND g24.year = 2024
+       AND g25.year = 2025
     JOIN monthly_solar_capacity c24
         ON g24.month = c24.month
-       AND c24.year_iso = 2024
+       AND c24.year = 2024
     JOIN monthly_solar_capacity c25
         ON g24.month = c25.month
-       AND c25.year_iso = 2025
+       AND c25.year = 2025
     JOIN monthly_solar_weather w24
         ON g24.month = w24.month
-       AND w24.year_iso = 2024
+       AND w24.year = 2024
     JOIN monthly_solar_weather w25
         ON g24.month = w25.month
-       AND w25.year_iso = 2025
+       AND w25.year = 2025
 )
 SELECT
     corr(growth_mwh, diff_installed_capacity_mw) AS correlation_growth_capacity,

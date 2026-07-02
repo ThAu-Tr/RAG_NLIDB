@@ -144,13 +144,7 @@ class VN_QsBase(Qdrant_VectorStore, OpenAI_Chat):
         """
 
         if initial_prompt is None:
-            initial_prompt = f"You are a {self.dialect} expert. Generate {self.dialect} SQL query only and with no explanation. \n" #Instead of '*' always name all the columns. If there are duplicate column names, use aliases by using the table-name as a prefix with an '_' as a seperator. \n"
-            #initial_prompt += """When combining multiple fact tables:
-#1. Identify the grain of each fact table.
-#2. Combine them only through shared dimensions or a shared key set that preserves grain.
-#3. Use all required predicates for the join, not a subset.
-#4. If grains differ, aggregate first to a common grain.
-#5. Avoid joins that can multiply rows."""
+            initial_prompt = f"You are a {self.dialect} expert. Generate {self.dialect} SQL query only and with no explanation. \n" 
         initial_prompt = self.add_ddl_to_prompt(
             initial_prompt, ddl_list, max_tokens=self.max_tokens
         )
@@ -293,22 +287,6 @@ class VN_QsBase(Qdrant_VectorStore, OpenAI_Chat):
         initial_prompt += '\n Please respond with a Python-Dictionary storing the key "corrected_SQL" written as a one-liner. \n'
 
         message_log = [self.system_message(initial_prompt)]
-        
-        # Added for multi-turn-functionality
-        #utterance_list = self._session.get_history()[-6:-1]
-        #if len(utterance_list) > 0:
-            #message_log.append(self.system_message('Past interactions in this session: '))
-            
-        #for utterance in utterance_list:
-            #if utterance is None:
-                #print("no history")
-            #else:
-                #if utterance is not None and "question" in utterance and "query" in utterance:
-                    #message_log.append(self.user_message(utterance["question"]))
-                    #if utterance["query"] is not None:
-                        #message_log.append(self.assistant_message(utterance["query"]))
-                    #if utterance["summary"] is not None:
-                        #message_log.append(self.assistant_message("Result-Summary: " + utterance["summary"]))
 
         return message_log
     
@@ -337,7 +315,6 @@ class VN_QsBase(Qdrant_VectorStore, OpenAI_Chat):
 
     def get_summary_prompt(self, question: str, df: pd.DataFrame, **kwargs) -> str:
         alternatives = kwargs.get('alternatives')
-        #self.log(title="Alternatives", message=str(alternatives))
 
         message_log = [
             self.system_message(

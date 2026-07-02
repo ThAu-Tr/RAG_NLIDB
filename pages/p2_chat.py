@@ -2,7 +2,7 @@ import time
 import streamlit as st
 from scripts import vanna_calls_ds as vc
 import streamlit_mermaid as stmd
-from datetime import datetime
+#from datetime import datetime
 
 st.set_page_config(layout="centered")
 

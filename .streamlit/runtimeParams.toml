@@ -1,3 +1,3 @@
 db_mono = "renewables_climate_mart"
-current_tbl = "fact_weather_daily"
+current_tbl = "dim_company_h"
 language = "English"
